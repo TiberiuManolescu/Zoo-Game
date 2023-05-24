@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane styleClass="registerPane" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.zoogame.controllers.RegisterController"
+            prefHeight="600.0" prefWidth="1000.0">
+
+    <!-- Register label -->
+    <Label styleClass="titleLabel" layoutX="130.0" layoutY="150.0" text="Register"/>
+
+    <!-- Username input field with "username" placeholder -->
+    <TextField fx:id="usernameField" layoutX="400.0" layoutY="200.0" promptText="Username" />
+
+    <!-- Password input field with "password" placeholder -->
+    <PasswordField fx:id="passwordField" layoutX="400.0" layoutY="250.0" promptText="Password" />
+
+    <!-- Button "Submit" text -->
+    <Button fx:id="submitButton" layoutX="450.0" layoutY="300.0" text="Submit" onAction="#handleSubmitButtonAction" />
+
+</AnchorPane>
