@@ -23,21 +23,13 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Create a new instance of the ViewManager
-        ViewManager viewManager = new ViewManager(primaryStage);
+        ViewManager.setPrimaryStage(primaryStage);
 
         // Set the title of the primary stage
         primaryStage.setTitle("Zoo Game");
 
         // Show the primary stage
         primaryStage.show();
-
-        UserDb userDb = new UserDb();
-
-        List<User> users = userDb.getAllUsers();
-        for (User user : users) {
-            System.out.printf("User ID: %d\nUsername: %s\nPassword: %s\n\n",
-                    user.getUser_id(), user.getUsername(), user.getPassword());
-        }
 
     }
 

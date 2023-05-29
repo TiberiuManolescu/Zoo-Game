@@ -1,0 +1,43 @@
+.root {
+    -fx-background-color: lightblue;
+}
+
+.titleLabelLogin {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: darkred;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 40px;
+    -fx-translate-x: -30px;
+    -fx-translate-y: 50px;
+}
+
+.titleLabel {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: dark;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 40px;
+    -fx-translate-x: -30px;
+    -fx-translate-y: 50px;
+}
+
+.loginButton {
+    -fx-pref-width: 100px;
+    -fx-pref-height: 30px;
+    -fx-font-size: 14px;
+    -fx-background-color: darkgreen;
+    -fx-text-fill: white;
+}
+
+.registerButton {
+    -fx-pref-width: 100px;
+    -fx-pref-height: 30px;
+    -fx-font-size: 14px;
+    -fx-background-color: darkblue;
+    -fx-text-fill: white;
+}

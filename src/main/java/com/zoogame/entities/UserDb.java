@@ -26,10 +26,32 @@ public class UserDb {
             statement.setInt(1, user_id);
             ResultSet result = statement.executeQuery();
 
-            //Daca a gasit ceva
+
+
             if (result.next()) {
                 user = new User();
-                user.setUser_id(result.getInt("id"));
+                user.setUser_id(result.getInt("user_id"));
+                user.setUsername(result.getString("username"));
+                user.setPassword(result.getString("password"));
+            }
+        }
+
+        return user;
+    }
+
+    public User getUserByUsername(String searchedUsername) throws SQLException {
+        User user = null;
+
+        try (Connection conn = DriverManager.getConnection(connectionURL, username, password)) {
+            String sql = "SELECT * FROM users WHERE username=?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, searchedUsername);
+            ResultSet result = statement.executeQuery();
+
+
+            if (result.next()) {
+                user = new User();
+                user.setUser_id(result.getInt("user_id"));
                 user.setUsername(result.getString("username"));
                 user.setPassword(result.getString("password"));
             }
@@ -67,9 +89,10 @@ public class UserDb {
             checkStatement.setString(1, user.getUsername());
             ResultSet resultSet = checkStatement.executeQuery();
 
-            //Daca exista deja un user cu acel username, nu il cream pe cel nou
+
             if (resultSet.next()) {
                 message = "Username already exists";
+
             } else { // Aici cream utilizatorul
                 // Insert the new user
                 PreparedStatement insertStatement = conn.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)");
@@ -92,7 +115,6 @@ public class UserDb {
             return result.next();
         }
     }
-
     public boolean loginUser(User user) throws SQLException {
         try (Connection conn = DriverManager.getConnection(connectionURL, this.username, this.password)) {
             String sql = "SELECT * FROM users WHERE username=? AND password=?";
